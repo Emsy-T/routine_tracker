@@ -4,7 +4,7 @@
 import 'package:routine_tracker/models/routine_type.dart';
 
 class RoutineItem {
-  final int id;
+  final String id;
   final String title;
   final RoutineType type;
 
