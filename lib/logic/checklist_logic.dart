@@ -24,3 +24,16 @@ createDailyLog(String date, List<RoutineItem> routineItems) {
   // Return the Daily Log with its date and tasks
   return DailyLog(date: date, tasks: snapshots);
 }
+
+DailyLog toggleTaskCompletion(DailyLog dailyLog, String taskId) {
+  List<HistoricalTaskSnapshot> snapshots = [];
+  for (HistoricalTaskSnapshot snapshot in dailyLog.tasks) {
+    if (snapshot.id == taskId) {
+      snapshot = snapshot.copyWith(isCompleted: !snapshot.isCompleted);
+    }
+
+    snapshots.add(snapshot);
+  }
+  var newDailyLog = DailyLog(date: dailyLog.date, tasks: snapshots);
+  return newDailyLog;
+}

@@ -15,6 +15,16 @@ class HistoricalTaskSnapshot {
     required this.isCompleted,
   });
 
+  // Returns of the historical task snapshot with some fields changed
+  HistoricalTaskSnapshot copyWith({bool? isCompleted}) {
+    return HistoricalTaskSnapshot(
+      id: id,
+      title: title,
+      type: type,
+      isCompleted: isCompleted ?? this.isCompleted,
+    );
+  }
+
   // Convert the Historical Task Snapshot into a data format that can be saved
   Map<String, dynamic> toMap() {
     return {
